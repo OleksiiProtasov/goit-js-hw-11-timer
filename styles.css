@@ -1,0 +1,10 @@
+.timer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    width: 500px;
+    height: 100px;
+    background-color:crimson;
+    color:cornsilk;
+}
