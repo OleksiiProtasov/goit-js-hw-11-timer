@@ -1,3 +1,10 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .timer{
     display: flex;
     justify-content: center;
@@ -7,4 +14,11 @@
     height: 100px;
     background-color:crimson;
     color:cornsilk;
+    border-radius: 50%;
+}
+
+.value{
+    font-size: larger;
+    font-size: 20px;
+    margin: 5px;
 }
