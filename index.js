@@ -7,7 +7,6 @@ class CountdownTimer {
     this.hours = document.querySelector('.value[data-value="hours"]');
     this.mins = document.querySelector('.value[data-value="mins"]');
     this.secs = document.querySelector('.value[data-value="secs"]');
-    this.timerFace= document.getElementById("timer-1");
   }
 
   setInt = setInterval(() => {
@@ -34,12 +33,12 @@ class CountdownTimer {
   timeFinish(time) {
     if (time <= 0) {
       clearInterval(this.setInt);
-      this.selector.textContent = "Finish";
+      this.selector = document.getElementById("timer-1").textContent = "Finish";
     }
   }
 };
 
 new CountdownTimer({
   selector: "#timer-1",
-  targetDate: new Date("May 21, 2021"),
+  targetDate: new Date("May 31, 2021"),
 });
