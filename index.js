@@ -1,36 +1,31 @@
-
-
- const refs = {
-  days: document.querySelector('.value[data-value="days"]'),
-  hours: document.querySelector('.value[data-value="hours"]'),
-  mins: document.querySelector('.value[data-value="mins"]'),
-  secs: document.querySelector('.value[data-value="secs"]'),
-};
-
 class CountdownTimer {
+  
   constructor({ selector, targetDate }) {
     this.selector = selector;
     this.targetDate = targetDate;
+    this.days = document.querySelector('.value[data-value="days"]');
+    this.hours = document.querySelector('.value[data-value="hours"]');
+    this.mins = document.querySelector('.value[data-value="mins"]');
+    this.secs = document.querySelector('.value[data-value="secs"]');
+    this.timerFace= document.getElementById("timer-1");
   }
 
   setInt = setInterval(() => {
     const nowDate = Date.now();
     const time = this.targetDate - nowDate;
     this.updateClockface(time);
-this.timeFinish(time);
+    this.timeFinish(time);
   }, 1000);
 
   updateClockface(time) {
     const days = this.pad(Math.floor(time / (1000 * 60 * 60 * 24)));
-    const hours = this.pad(
-      Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-    );
+    const hours = this.pad(Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
     const mins = this.pad(Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)));
     const secs = this.pad(Math.floor((time % (1000 * 60)) / 1000));
-    refs.days.textContent = `${days}`;
-    refs.hours.textContent = `${hours}`;
-    refs.mins.textContent = `${mins}`;
-    refs.secs.textContent = `${secs}`;
+    this.days.textContent = `${days}`;
+    this.hours.textContent = `${hours}`;
+    this.mins.textContent = `${mins}`;
+    this.secs.textContent = `${secs}`;
   }
 
   pad(value) {
@@ -39,11 +34,12 @@ this.timeFinish(time);
   timeFinish(time) {
     if (time <= 0) {
       clearInterval(this.setInt);
-      refs.timerFace.textContent = "Finish";
+      this.selector.textContent = "Finish";
     }
   }
 };
+
 new CountdownTimer({
   selector: "#timer-1",
-  targetDate: new Date("May 31, 2021"),
+  targetDate: new Date("May 21, 2021"),
 });
