@@ -5,7 +5,6 @@
   hours: document.querySelector('.value[data-value="hours"]'),
   mins: document.querySelector('.value[data-value="mins"]'),
   secs: document.querySelector('.value[data-value="secs"]'),
-  timerFace: document.getElementById("timer-1"),
 };
 
 class CountdownTimer {
@@ -46,5 +45,5 @@ this.timeFinish(time);
 };
 new CountdownTimer({
   selector: "#timer-1",
-  targetDate: new Date("May 28, 2021"),
+  targetDate: new Date("May 31, 2021"),
 });
