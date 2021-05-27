@@ -38,7 +38,7 @@ this.timeFinish(time);
     return String(value).padStart(2, "0");
   }
   timeFinish(time) {
-    if (time < 0) {
+    if (time <= 0) {
       clearInterval(this.setInt);
       refs.timerFace.textContent = "Finish";
     }
